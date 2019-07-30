@@ -1,0 +1,42 @@
+Replication Agent
+Design Dialog  -- 
+Cq:listeners -- it provides some additional features to your component
+wf
+permissions / acls
+
+--- Schedular --- Author will add all the assets in a particular folder-- /content/dam/projname
+
+my schedular will run daily at 12AM and put the updated assets in a folder with specific Date
+
+editable templates
+
+
+
+Event Handler/Listener
+
+Queries - sql/sql2/xpath
+
+ImageRendering -- Three images are there with different resolution 
+Using schedular -- 12am I need to change an images
+workflow -- changing logic 
+
+workflow we will move assets based on the type of the assets
+
+JUNIT
+
+RTE
+
+complete workflow
+
+
+
+dev & QA
+
+
+
+
+MSM
+
+Dispatcher --
+
+

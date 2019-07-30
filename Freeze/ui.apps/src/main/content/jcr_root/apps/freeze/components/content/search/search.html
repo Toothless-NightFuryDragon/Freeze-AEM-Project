@@ -1,0 +1,54 @@
+
+
+  Search component.
+  <div data-sly-test.value="${request.requestParameterMap['Hello'][0].toString}" data-sly-unwrap></div>
+  ${value}
+  <div id="search">
+	Enter search term : <input type="text" id="search-field" placeholder="search-field" value="search"/> </br>
+    <button name="submit" id="submit" onClick="getResults">Submit</button>
+  </div>
+
+  <div id="results"></div>
+
+
+
+<script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+
+    var displayResults="demo";
+var getResults = function(){
+
+    var searchValue = $("#search-field").val();
+    $.ajax({
+        url : "/bin/search?search=Home",
+        type : "POST",
+        data : {
+               "search-field" : searchValue },
+        success : function(result){
+					displayResults(result);
+        }
+
+    });
+
+};
+
+    displayResults = function(resultData){
+        console.log(resultData);
+	var resultsJSON = JSON.parse(resultData), results = [];
+
+    $.each(resultsJSON, function(key, val) {
+		if (key !== "facets"){
+			results.push("<a href='" + val + "'>" + key.substring(0, key.indexOf("*")) + "</a>");
+		}
+	});
+
+		$("#results").html(results.join("<br/>"));
+
+
+
+
+};
+
+
+
+</script>

@@ -1,0 +1,17 @@
+<sly data-sly-use.model = "com.regnant.freeze.models.Navigation" />
+
+	
+	<div>
+	<a href="index.html" class="logo"><img src="${properties.fileReference}" alt=""></a>
+	<ul id="navigation">
+	<sly data-sly-list = "${model.navItems}">
+		<li class="selected">
+			<a href="${item.link @ extension = 'html'} ">${item.title}</a>
+		</li>
+	</sly>
+	</ul>
+</div>
+
+
+
+

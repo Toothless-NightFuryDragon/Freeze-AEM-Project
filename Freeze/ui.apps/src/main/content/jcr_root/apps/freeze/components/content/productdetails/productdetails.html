@@ -1,0 +1,24 @@
+<sly data-sly-use.model = "com.regnant.freeze.models.Products">
+<div>
+				<ul>
+					<li>
+						<h1>${properties.categoryName}</h1>
+						<p>${properties.description}</p>
+					</li>
+
+
+						<sly data-sly-list="${model.productList}">
+
+                       <li>
+
+						<img src="${item.imageURL}" alt="">
+						<h2>${item.linkTitle}</h2>
+
+                     </li>
+
+					</sly>
+
+				</ul>
+
+			
+		</div>

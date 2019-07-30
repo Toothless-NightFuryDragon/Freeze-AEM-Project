@@ -1,0 +1,127 @@
+
+<sly data-sly-use.model="com.regnant.freeze.models.ImageLink">
+ <div class="header">
+     <img src="${model.fileReference}" alt="">
+				<div>
+     <a href="${model.linkURL @ extension='html'}">${model.linkTitle}</a>
+				</div>
+			</div>
+
+
+Before Injection :: currentPage.title = ${currentPage.title} </br>			
+<sly data-sly-use.exper = "com.regnant.freeze.models.HttpModel">
+exper.currentPage --> ${exper.currentPage}
+exper.component --> ${exper.component}
+
+<h2>My First JavaScript</h2>
+
+
+<button data-sly-use.test="demo.js" type="button" onclick="test.getDate()">
+Click me to display Date and Time.</button>
+<p id="demo"></p>
+
+
+<p>Unwrap <p>
+    <div data-sly-unwrap style="background-color:red"><p style="background-color:yellow">This is an unwrap1</p></div>
+<div data-sly-unwrap style="background-color:blue">This is an unwrap2</div>
+
+<p>data-sly-text</p>
+
+<p>not using data-sly-text</p>
+<p data-sly-text="${currentPage.title}">not using data-sly-tex</p>
+
+<p>data-sly-attribute ::  Adds attributes to the host element.</p>
+
+<button type="button" onclick="getId()"> click </button>
+
+<p id="one" style="background-color:yellow" data-sly-attribute.id="two"> ID = one </p>
+<p id="two" style="background-color:pink" > ID = two </p>
+
+<p>data-sly-element</p>
+
+<h1 style="background-color:pink" data-sly-element="${'ol'}"> Link 1 </h1>
+<h1 style="background-color:yellow" data-sly-element="${'ol'}" > Link 2 </h1>
+
+
+<p>data-sly-test</p>
+
+<p data-sly-test.mode="${wcmmode.edit || wcmmode.design || wcmmode.publish}"> Edit or Design Mode </p>
+
+<p> data-sly-list</p>
+
+<ul data-sly-list="${currentPage.listChildren}">
+	<li>${item.title}</li>
+</ul>
+
+<ul data-sly-list.data="${currentPage.listChildren @begin = 0,end = 2}">
+	<li>${data.title}</li>
+</ul>
+
+
+<ul data-sly-repeat.dem="${currentPage.listChildren}">
+	<li>${dem.title}</li>
+</ul>
+
+<p>data-sly-resource</p>
+<div data-sly-resource="${'txt1' @resourceType='core/wcm/components/title/v1/title'}"></div>
+<div data-sly-resource="${'txt' @ resourceType='core/wcm/components/form/button/v1/button'}">option1 </div>
+<div data-sly-resource="${'txt2' @resourceType='/libs/wcm/foundation/components/title'}"></div>
+
+<p>data-sly-template & data-sly-call</p>
+
+<template data-sly-template.one> blah </template>
+
+<div data-sly-call="${one}"></div>
+
+<template data-sly-template.two="${@title, resource='The resource of the parent node'}">
+	<h1>${title}</h1>
+	<p>Parent : ${resource.name}</p>
+
+</template>
+
+<div data-sly-call="${two @ title=properties.jcr:title, resource=resource.parent}"></div>
+
+<tag>some test ${currentpage.title}</tag>
+
+${'#.00' @ format=42}
+${'#.00' @ format=50, type='number'} 
+${'#.00' @ format=60, locale='de'}
+
+<h2>
+	${ 'dd-MMMM-yyyy hh:mm:ss' @
+		format=currentPage.lastModified,
+		timezone='GMT+05:30',
+		locale='en'
+	}
+</h2>
+
+
+
+<p>i18n and locale objects</p>
+${'Hello World' @ i18n, locale=request.locale}
+
+
+<p>URL Manipulation</p>
+<a href="${'/content/Homepage' @extension = 'html'}">Homepage</a> <br/>
+<a href="${'/content/Homepage' @extension = 'json', selectors = '1'}">Homepage + selector</a> <br/>
+<a href="${'/content/Homepage' @extension = 'html', fragment='frag'}">Homepage+ fragment</a> <br/>
+
+
+
+<br/>
+Global objects<br/>
+
+${currentPage.title} <br/>
+prop --> ${properties.sling:resourceType} <br/>
+prop --> ${properties.linkURL} <br/>
+cn --> ${currentNode.name} <br/>
+inh prop --> ${inheritedPageProperties.name} <br/>
+
+
+
+
+
+
+
+
+

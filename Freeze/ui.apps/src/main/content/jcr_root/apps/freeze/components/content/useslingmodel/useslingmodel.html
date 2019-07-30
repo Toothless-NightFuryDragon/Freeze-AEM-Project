@@ -1,0 +1,18 @@
+
+
+//  UseSlingModel component.
+//<div data-sly-use.model = "com.regnant.freeze.models.HttpModel">
+//  
+//  ${model.currentPage}
+//  </div>
+//  
+
+UseSlingModel component.
+<div data-sly-use.temp = "com.regnant.freeze.models.MyNavModel">
+  <ul data-sly-list=${temp.pg}>
+  list
+  ${item.path}
+  
+  </ul>
+  
+  </div>

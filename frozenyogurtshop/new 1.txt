@@ -1,0 +1,18 @@
+Dynamic Navigation
+
+
+There are several ways 
+
+1. Multifield which accepts link, link text
+
+2. Where author will enter root page and next what evver the pages under the root page will be fetched up
+
+
+Did you see any of the mutlifield components?
+
+
+Coral Multifiled -- Node Store
+
+ACS Commons Multifield or custom js multifield -- Json store
+
+
